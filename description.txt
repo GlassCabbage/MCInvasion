@@ -4,3 +4,4 @@ Features:
 - Some weapens drop from the mobs
 - A pet from the underworld
 - A WitherBoss (can't summon through normal process yet)
+- Still under development, contribute through https://github.com/GlassCabbage/MCInvasion
