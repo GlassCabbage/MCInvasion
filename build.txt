@@ -1,0 +1,5 @@
+name = MCInvasion
+displayName = MC Invasion
+author = GlassCabbage
+version = 0.1
+description = Some mobs in Minecraft break into Terraria. Craft a Grass Block to start.

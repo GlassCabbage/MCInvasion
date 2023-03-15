@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "scwjVMEGqo+cqBuePGQx0n/vrkA2TsW9gHuVmty5UKSLTW+/gthu0fi2nXQo3pgGh8qu/luAkzqrGs/U0733JA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\14214\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MCInvasion\\MCInvasion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\14214\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}
