@@ -97,7 +97,6 @@ namespace MCInvasion.NPCs.WitherBossNPC
 			if (!Main.dedServ)
 			{
 				Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/witherFight");
-				Main.musicVolume = 1f;
 			}
 		}
 

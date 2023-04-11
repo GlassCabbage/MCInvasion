@@ -10,8 +10,6 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Creeper Head"); 
-			Tooltip.SetDefault("What a dangerous weapen!!");
 		}
 
 		public override void SetDefaults()
