@@ -65,6 +65,10 @@ Mods: {
 				'''
 				或许村民可以用这个进行一些邪恶的酿造
 				'''
+			WitherBossSummonItem:
+				'''
+				[c/ff0000:未完成的物品]
+				'''
 		}
 		
 		ItemName: {
@@ -76,6 +80,7 @@ Mods: {
 			GhostHead:'''恶魂榴弹炮'''
 			GhostPetItem:'''饿魂之泪'''
 			BottleEvil:'''恶毒基底'''
+			WitherBossSummonItem:'''凋灵'''
 		}
 		
 		ProjectileName: {

@@ -8,10 +8,33 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Items\powder.psd" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\ScreenShader\" />
     <Folder Include="Content\UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Items\Item.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Item.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Items\Item.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Item.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Items\WitherBossItem\NetherStar.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
   </ItemGroup>
 </Project>

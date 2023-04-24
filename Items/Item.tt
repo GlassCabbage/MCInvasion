@@ -1,0 +1,156 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+	//变量区
+	var Path="MCInvasion.Items.WitherBossItem";  //格式为：  Mod名称.文件夹路径    文件夹直接用'.'隔开
+	var ClassName="WitherSword";  //类名，与贴图文件名保持相同，被其他文件调用时使用的名字
+	var ItemName = "WitherSword";
+	var Width = "40";  //物品宽度
+	var Height ="40";  //物品高度
+	var UseTime = "10";  //使用时间
+	var UseStyle = "Swing";  //使用动作
+	var AutoUse = "true"; //是否自动使用
+	var ManaCost = "0";  //消耗法力值
+	var Scale = "1f";  //模型大小倍数
+	var Discribe = "";
+	var Point = "99"; //旅行模式的研究点
+	var StackNum ="1";  //最大堆叠数量
+	bool isAmmo = false;  //是否为子弹
+	var NoMaleeDamage = "false";  //使用物品时物品是否不造成碰撞伤害
+	var AnimationTime = "10";  //使用的动画时常
+	var RareColor = "Yellow";  //稀有度颜色
+	var UseSound ="SoundID.Item1";  //使用时的声音
+
+	
+	bool isWeapen = false;  //是否造成伤害
+		var Damage = "10"; //物品伤害
+		var DamageClass = "Magic";  //伤害类型    
+		var ShootSpeed="10";  //射击速度
+		var KnockBack = "10f";  //造成的击退效果
+
+	var CanUse = "false";  //物品能否被使用
+	var isConsumable = "false";  //是否为消耗品
+	var Value = "10000";  //物品的价值，在城镇NPC处的售价
+	
+
+
+
+#>
+// 记得生成后将文件名修改为 <#=ClassName#>.cs
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
+using Terraria.GameContent.Creative;
+using Terraria.ModLoader.IO;
+
+namespace <#=Path#>
+{
+	public class <#=ClassName#> : ModItem
+	{
+
+		public override void SetDefaults()
+		{
+<#
+			if (isWeapen){
+#>
+			Item.damage = <#=Damage#>;
+			Item.DamageType = DamageClass.<#=DamageClass#>;
+			Item.shootSpeed = <#=ShootSpeed#>;
+			Item.knockBack = <#=KnockBack#>;
+<#
+			}
+#>
+
+			Item.width = <#=Width#>;
+			Item.height = <#=Height#>;
+			Item.useTime = <#=UseTime#>;
+			Item.useAnimation = <#=AnimationTime#>;
+			Item.useStyle = ItemUseStyleID.<#=UseStyle#>;
+			Item.rare = ItemRarityID.<#=RareColor#>;
+			Item.UseSound = <#=UseSound#>;
+			Item.autoReuse = <#=AutoUse#>;
+			//Item.shoot = ModContent.ProjectileType<JetFlame>();  // 发射生成的射弹种类
+			Item.noMelee = <#=NoMaleeDamage#>;
+			Item.value = <#=Value#>;
+			//Item.useAmmo = ModContent.ItemType<powder>();   //使用的弹药
+			
+			Item.mana = <#=ManaCost#>;
+			Item.scale = <#=Scale#>;
+			Item.maxStack = <#=StackNum#>;
+			Item.consumable = <#=isConsumable#>;
+<#
+			if (isAmmo){
+#>
+			Item.ammo = Item.type;
+<#}#>
+		}
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("<#=ItemName#>");
+			Tooltip.SetDefault("<#=Discribe#>");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = <#=Point#>;
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			// 使用物品时发生的事情
+			return true;
+		}
+
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+		{
+			// 覆盖掉原先的射弹
+			return false;
+		}
+
+		public override bool CanConsumeAmmo(Item ammo, Player player)
+		{
+			// 不消耗弹药的概率
+			return Main.rand.NextFloat() >= 0.80f;
+		}
+
+		public override void HoldItem(Player player)
+		{
+			// 持续使用物品时
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			//判断物品能否被使用
+			return <#=CanUse#>;
+		}
+
+		public override void SaveData(TagCompound tag)
+		{
+			// 特殊内容存储
+			//tag.Add("name", Item.Name);
+		}
+
+		public override void LoadData(TagCompound tag)
+		{
+			//特殊内容读取
+			//Item.SetNameOverride(tag.GetString("name"));
+		}
+
+		public override void AddRecipes()
+		{
+			// 合成表
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.DirtBlock, 1);   // 添加合成所需物品和数量
+			recipe.AddTile(TileID.WorkBenches);    // 合成需要在什么物块周围
+			recipe.Register();
+		}
+
+
+	}
+}
+
+//  本文件由泰拉瑞亚模组T4模板生成，项目地址：https://github.com/GlassCabbage/Terraria-T4-template

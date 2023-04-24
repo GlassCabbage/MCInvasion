@@ -52,12 +52,14 @@ namespace MCInvasion.Items.WitherBossItem
 
 		public override void AddRecipes()
 		{
-			// TODO: Maybe use item to summon Wither Boss, maybe use struct to summon.
+            // TODO: Maybe use item to summon Wither Boss, maybe use struct to summon.
 
-			//Recipe recipe = CreateRecipe();
-			//recipe.AddIngredient(ItemID.CopperCoin, 1);
-			//recipe.AddTile(TileID.WorkBenches);
-			//recipe.Register();
-		}
+            Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Bone, 30);
+			recipe.AddIngredient(1508, 5);
+			recipe.AddIngredient(172, 10);
+			recipe.AddTile(412);
+            recipe.Register();
+        }
 	}
 }

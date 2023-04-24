@@ -1,7 +1,10 @@
-Some mobs in Minecraft break into Terraria. Craft a Grass Block to start. !!!Mod under development!!!
+Some mobs in Minecraft break into Terraria. Craft a Grass Block to start. 
+
+!!!Mod under development!!!
+
 Features:
 - Some mobs from Minecraft, you can meet them after craft and use a Grass Block
 - Some weapens drop from the mobs
-- A pet from the underworld
+- A pet from the underworld (Try Rainbow Dye :)
 - A WitherBoss (can't summon through normal process yet)
 - Still under development, contribute through https://github.com/GlassCabbage/MCInvasion

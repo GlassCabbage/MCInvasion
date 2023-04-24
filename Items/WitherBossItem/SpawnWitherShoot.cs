@@ -49,10 +49,10 @@ namespace MCInvasion.Items.WitherBossItem
 
 		public override void AddRecipes()
 		{
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.DirtBlock, 1);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
+            //Recipe recipe = CreateRecipe();
+            //recipe.AddIngredient(ItemID.DirtBlock, 1);
+            //recipe.AddTile(TileID.WorkBenches);
+            //recipe.Register();
         }
 	}
 }
