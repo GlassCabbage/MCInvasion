@@ -11,7 +11,7 @@ namespace MCInvasion.NPCs
 	public class Zombie : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Zombie");
+			// DisplayName.SetDefault("Zombie");
 
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
 
@@ -48,9 +48,9 @@ namespace MCInvasion.NPCs
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && spawnInfo.Player.ZoneOverworldHeight && !Main.dayTime)
+			if (spawnInfo.Player.ZoneOverworldHeight && !Main.dayTime)
 				return 0.3f;
-			else if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && (spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight))
+			else if ((spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight))
 				return 0.3f;
 			else
 				return 0f;
@@ -62,7 +62,7 @@ namespace MCInvasion.NPCs
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 10; i++) {
 				var dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Blood);
 

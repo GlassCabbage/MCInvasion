@@ -8,8 +8,8 @@ namespace MCInvasion.Pets
 	public class GhostPetBuff : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ghast");
-			Description.SetDefault(@"""Small Ghast around you!""");
+			// DisplayName.SetDefault("Ghast");
+			// Description.SetDefault(@"""Small Ghast around you!""");
 
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;

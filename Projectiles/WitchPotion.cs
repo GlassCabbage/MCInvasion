@@ -13,7 +13,7 @@ namespace MCInvasion.Projectiles
 	{
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Potion");
+			// DisplayName.SetDefault("Potion");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3; 
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0; 
 		}
@@ -142,7 +142,7 @@ namespace MCInvasion.Projectiles
 		public int EffectRadius = 100;
 		public int healPower = 200;
 		bool isKilled = false;
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			if (isKilled)
 				return;
 			isKilled = true;
@@ -354,7 +354,7 @@ namespace MCInvasion.Projectiles
 			return false;
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
 		}
 
@@ -376,8 +376,7 @@ namespace MCInvasion.Projectiles
             }
 
 			if (explosion)
-				Kill(0);
-
+				OnKill(0);
 
 
 			Projectile.rotation += 0.03f;
@@ -420,12 +419,12 @@ namespace MCInvasion.Projectiles
 				foreach (NPC i in Main.npc)
 				{
 					if (Projectile.Center.X > i.Center.X - i.width / 2 && Projectile.Center.X < i.Center.X + i.width / 2 && Projectile.Center.Y < i.Center.Y + i.height / 2 && Projectile.Center.Y > i.Center.Y - i.height / 2)
-						Kill(10);
+						OnKill(10);
 				}
 				foreach (Player i in Main.player)
 				{
 					if (Projectile.Center.X > i.Center.X - i.width / 2 && Projectile.Center.X < i.Center.X + i.width / 2 && Projectile.Center.Y < i.Center.Y + i.height / 2 && Projectile.Center.Y > i.Center.Y - i.height / 2)
-						Kill(10);
+						OnKill(10);
 				}
 			}
 		}

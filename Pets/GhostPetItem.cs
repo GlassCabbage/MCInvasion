@@ -10,8 +10,8 @@ namespace MCInvasion.Pets
 	public class GhostPetItem : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ghast Tear");
-			Tooltip.SetDefault("Summons a small Ghost to follow you");
+			// DisplayName.SetDefault("Ghast Tear");
+			// Tooltip.SetDefault("Summons a small Ghost to follow you");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}

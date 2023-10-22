@@ -12,8 +12,8 @@ namespace MCInvasion.Items.WitherBossItem
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault(".");
-			DisplayName.SetDefault("Wither Sword");
+			// Tooltip.SetDefault(".");
+			// DisplayName.SetDefault("Wither Sword");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -49,7 +49,7 @@ namespace MCInvasion.Items.WitherBossItem
 			
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			Vector2 pos = player.Center + new Vector2(Main.rand.Next(2000) - 1000, Main.rand.Next(2000) - 1000);
 			Projectile.NewProjectile(player.GetSource_FromThis(), pos, 30*pos.DirectionTo(target.Center), ModContent.ProjectileType<WitherHeadFriend>(), 100, 2);

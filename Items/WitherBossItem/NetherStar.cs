@@ -37,8 +37,8 @@ namespace MCInvasion.Items.WitherBossItem
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Nether Star");
-			Tooltip.SetDefault("");
+			// DisplayName.SetDefault("Nether Star");
+			// Tooltip.SetDefault("");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

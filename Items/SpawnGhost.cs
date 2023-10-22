@@ -10,8 +10,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Ghost");
-			Tooltip.SetDefault("use to spawn a Ghost");
+			// DisplayName.SetDefault("Spawn Ghost");
+			// Tooltip.SetDefault("use to spawn a Ghost");
 		}
 
 		public override void SetDefaults()

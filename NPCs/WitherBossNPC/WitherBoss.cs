@@ -14,6 +14,7 @@ using MCInvasion.Content.BossBars;
 using System.Collections.Generic;
 using MCInvasion.Projectiles.WitherBossProjectile;
 using Terraria.DataStructures;
+using MCInvasion.Buffs;
 
 namespace MCInvasion.NPCs.WitherBossNPC
 {
@@ -59,21 +60,14 @@ namespace MCInvasion.NPCs.WitherBossNPC
 		public ref float RemainingShields => ref NPC.localAI[2];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wither Boss");
+			// DisplayName.SetDefault("Wither Boss");
 			// 凋零似乎有了新的攻击动画，不过在改动前得看看碰撞箱与贴图相对坐标原点的变化
 			Main.npcFrameCount[NPC.type] = 8;
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 
 			// TODO: Make some buff more maybe
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-			{
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Confused
-				}
-			};
-			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
 		}
 
 		public override void SetDefaults() {
@@ -860,7 +854,7 @@ namespace MCInvasion.NPCs.WitherBossNPC
         }
 
 		// TODO: 用下面的方法来实现劲爆尾杀，修改掉dead()里面的判定
-		public override void HitEffect(int hitDirection, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{
 			// If the NPC dies, spawn gore and play a sound
 			if (Main.netMode == NetmodeID.Server)
@@ -885,7 +879,7 @@ namespace MCInvasion.NPCs.WitherBossNPC
 			//}
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
         }
 
@@ -927,21 +921,31 @@ namespace MCInvasion.NPCs.WitherBossNPC
 
 		private void spawnScreen()
         {
+			int id = 0;
 			switch (Main.rand.Next(4))
 			{
 				case 0:
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(screenDistance - Main.rand.Next(2 * screenDistance), screenDistance), new Vector2(0, 5), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//最上面那条
+					id = Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(screenDistance - Main.rand.Next(2 * screenDistance), screenDistance), new Vector2(0, 5), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//最上面那条
+					Main.projectile[id].rotation = -(float)(Math.PI / 2);
 					break;
 				case 1:
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(-screenDistance, screenDistance - Main.rand.Next(2 * screenDistance)), new Vector2(-5, 0), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//右边那条
+					id = Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(-screenDistance, screenDistance - Main.rand.Next(2 * screenDistance)), new Vector2(-5, 0), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//右边那条
 					break;
 				case 2:
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(screenDistance - Main.rand.Next(2 * screenDistance), -screenDistance), new Vector2(0, -5), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//下边那条
+					id = Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(screenDistance - Main.rand.Next(2 * screenDistance), -screenDistance), new Vector2(0, -5), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//下边那条
+					Main.projectile[id].rotation = (float)(Math.PI / 2);
 					break;
 				case 3:
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(screenDistance, screenDistance - Main.rand.Next(2 * screenDistance)), new Vector2(5, 0), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//左边那条
+					id = Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(screenDistance, screenDistance - Main.rand.Next(2 * screenDistance)), new Vector2(5, 0), ModContent.ProjectileType<WitherHead>(), screenDamage, 0f);//左边那条
+					Main.projectile[id].spriteDirection = -1;
 					break;
 			}
+			if (isSecondStage)
+            {
+				Main.projectile[id].frame = 1;
+				Main.projectile[id].ai[1] = 1;
+            }
+				
 		}
 
 

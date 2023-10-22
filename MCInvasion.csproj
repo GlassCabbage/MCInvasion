@@ -8,6 +8,14 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <AdditionalFiles Remove="Localization\en-US.hjson" />
+    <AdditionalFiles Remove="Localization\zh-Hans.hjson" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Buffs\WitherAttackPlayerEffect.png" />
+    <None Remove="Buffs\WitherDebuffForMob.png" />
+    <None Remove="Buffs\WitherDebuffForPlayer.png" />
+    <None Remove="Items\consumer\FlaskofWither.png" />
     <None Remove="Items\powder.psd" />
   </ItemGroup>
   <ItemGroup>
@@ -27,11 +35,6 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Items\Item.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Item.tt</DependentUpon>
-    </Compile>
     <Compile Update="Items\WitherBossItem\NetherStar.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

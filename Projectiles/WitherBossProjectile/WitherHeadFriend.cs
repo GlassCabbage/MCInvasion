@@ -13,7 +13,7 @@ namespace MCInvasion.Projectiles.WitherBossProjectile
 	public class WitherHeadFriend : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("WitherHead"); 
+			// DisplayName.SetDefault("WitherHead"); 
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; 
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0; 
 		}
@@ -47,10 +47,10 @@ namespace MCInvasion.Projectiles.WitherBossProjectile
 			return true;
 		}
 
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
 
 		}

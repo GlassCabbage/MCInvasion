@@ -41,7 +41,7 @@ namespace MCInvasion.NPCs
 		public ref float AI_Time2 => ref NPC.ai[2];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ghast");
+			// DisplayName.SetDefault("Ghast");
 			Main.npcFrameCount[NPC.type] = 8;
 		}
 
@@ -76,7 +76,7 @@ namespace MCInvasion.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			if (NPC.AnyNPCs(ModContent.NPCType<Ghost>()))
 				return 0f;
-			if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && spawnInfo.Player.ZoneUnderworldHeight && Main.hardMode)
+			if (spawnInfo.Player.ZoneUnderworldHeight && Main.hardMode)
 				//return 0.05f;
 				return 0.01f;
 			else
@@ -362,7 +362,7 @@ namespace MCInvasion.NPCs
 			PitchVariance = 0.2f,
 			MaxInstances = 3,
 		};
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 10; i++) {
 				int dustType = DustID.Torch;
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

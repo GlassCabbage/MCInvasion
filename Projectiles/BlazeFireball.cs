@@ -48,7 +48,7 @@ namespace MCInvasion.Projectiles
 			return true;
 		}
 
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 1; i < 10; i++)
 			{
@@ -57,7 +57,7 @@ namespace MCInvasion.Projectiles
 			}
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
 
 				target.AddBuff(BuffID.OnFire, 800, quiet: false);

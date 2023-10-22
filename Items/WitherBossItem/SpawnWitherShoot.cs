@@ -14,8 +14,8 @@ namespace MCInvasion.Items.WitherBossItem
 	public class SpawnWitherShoot : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Use to spawn a wither shoot");
-			Tooltip.SetDefault("TEST ITEM");
+			// DisplayName.SetDefault("Use to spawn a wither shoot");
+			// Tooltip.SetDefault("TEST ITEM");
 		}
 
 		public override void SetDefaults() {

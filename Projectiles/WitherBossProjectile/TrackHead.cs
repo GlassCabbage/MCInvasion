@@ -11,10 +11,10 @@ using Terraria.ModLoader;
 
 namespace MCInvasion.Projectiles.WitherBossProjectile
 {
-	public class TrackHead : ModProjectile
+	public class TrackHead : AbstractWitherHead
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("trackHead");
+			// DisplayName.SetDefault("trackHead");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -48,13 +48,13 @@ namespace MCInvasion.Projectiles.WitherBossProjectile
 			return true;
 		}
 
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
-
+			base.OnHitPlayer(target, info);
 
 			
 		}

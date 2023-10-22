@@ -48,7 +48,7 @@ namespace MCInvasion.Projectiles.GhostHeadProjectiles
 			return true;
 		}
 
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 1; i < 10; i++)
 			{
@@ -58,7 +58,7 @@ namespace MCInvasion.Projectiles.GhostHeadProjectiles
 		}
 
 		
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 
 			target.AddBuff(BuffID.OnFire, 800, quiet: false);

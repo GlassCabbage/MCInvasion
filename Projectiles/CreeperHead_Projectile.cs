@@ -10,7 +10,7 @@ namespace MCInvasion.Projectiles
 	public class CreeperHead_Projectile : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Creeper Head");
+			// DisplayName.SetDefault("Creeper Head");
 		}
 
 		public override void SetDefaults() {
@@ -84,7 +84,7 @@ namespace MCInvasion.Projectiles
 			return false;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<ElementBall>(), Projectile.damage, 10f, Main.myPlayer);
 			Projectile.Kill();

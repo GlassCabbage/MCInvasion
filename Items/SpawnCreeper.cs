@@ -10,8 +10,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Creeper");
-			Tooltip.SetDefault("use to spawn a creeper");
+			// DisplayName.SetDefault("Spawn Creeper");
+			// Tooltip.SetDefault("use to spawn a creeper");
 		}
 
 		public override void SetDefaults()

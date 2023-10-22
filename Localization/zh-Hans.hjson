@@ -1,4 +1,4 @@
-﻿# You may find this .hjson file approach to translations easier for your mod.
+# You may find this .hjson file approach to translations easier for your mod.
 # .hjson files contain translations for the language specified in the filename. (Make sure this file is UTF-8 encoded only.)
 # The possible languages are: English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
 # Here in ExampleMod we have organized these files in a folder called Localization. A single file per language makes it extremely easy to to integrate and maintain translations.
@@ -8,110 +8,224 @@
 
 Mods: {
 	MCInvasion: {
-		
-		
-		NPCName: {
-			Creeper: "苦力怕"
-			Blaze: 烈焰人
-			Zombie: 僵尸
-			Skeleton : 骷髅
-			Ghost:"恶魂"
-			SmallGhost:"饿魂"
-			Slime:"史莱姆"
-			Witch:"女巫"
-			WitherBoss:"凋灵"
+		NPCs: {
+			SmallGhost.DisplayName: 饿魂
+			WitherBoss.DisplayName: 凋灵
+			Creeper.DisplayName: 苦力怕
+			Blaze.DisplayName: 烈焰人
+			Zombie.DisplayName: 僵尸
+			Skeleton.DisplayName: 骷髅
+			Ghost.DisplayName: 恶魂
+			Slime.DisplayName: 史莱姆
+			Witch.DisplayName: 女巫
+
+			Villager: {
+				// DisplayName: Villager
+
+				TownNPCMood: {
+					// Content: 我很满足。
+					// NoHome: 我讨厌没有家。
+					// FarFromHome: 我离家太远了。
+					// LoveSpace: 我非常喜欢有这么大的空间。
+					// DislikeCrowded: 我不喜欢这么拥挤。
+					// HateCrowded: 我讨厌这么拥挤。
+					// LoveBiome: 我非常喜欢{BiomeName}。
+					// LikeBiome: 我喜欢{BiomeName}。
+					// DislikeBiome: 我不喜欢{BiomeName}。
+					// LoveNPC: 我非常喜欢{NPCName}。
+					// LikeNPC: 我喜欢{NPCName}。
+					// DislikeNPC: 我不喜欢{NPCName}。
+					// HateNPC: 我讨厌{NPCName}。
+					// LikeNPC_Princess: I like {NPCName}.
+					// Princess_LovesNPC: I like {NPCName}.
+				}
+			}
 		}
-		
-		
-		ItemTooltip: {
-			# These 2 examples show using substitutions. Here we use a vanilla Key and a key from this Mod to generate the text: "Nearby players get a bonus against: Octopus". 
-			# Note that the translation files for other languages don't need to define ItemTooltip.OctopusBanner, they would only need to define NPCName.Octopus, as seen in zh-Hans.hjson file. 
-			
-			CreeperHead:
-				'''
-				丢出一枚众生平等的苦力怕头颅
-				极度危险的武器
-				'''
-			MinecraftBlock:
-				'''
-				进入MC模式！
-				MC的怪物将开始生成！
-				[c/ff0000:请注意当前版本为测试版，模组内容尚不完善]
-				[c/ff0000:可通过联系B站GlassCabbage或在QQ群348802258进行反馈]
-				[c/ff0000:（当然最好直接上手在Github上修修改改Pull requests）]
-				'''
-			BlazeHead:
-				'''
-				[c/FF9900:背后的原因令人十级烧伤]
-				'''
-			FrostBlazeHead:
-				'''
-				[c/4EBDFF:麒麟飞到北极会变成什么]
-				[c/4EBDFF:冰麒麟]
-				'''
-			powder:
-				'''
-				蕴含着强大的能量，或许某种特殊的武器能用上他
-				'''
-			GhostHead:
-				'''
-				[c/ffffcc:长按屏幕为恶魂加油]
-				'''
-			GhostPetItem:
-				'''
-				别看他一身白色，但他也有对七彩的渴望
-				'''
-			BottleEvil:
-				'''
-				或许村民可以用这个进行一些邪恶的酿造
-				'''
-			WitherBossSummonItem:
-				'''
-				[c/ff0000:未完成的物品]
-				'''
+
+		Items: {
+			CreeperHead: {
+				Tooltip:
+					'''
+					丢出一枚众生平等的苦力怕头颅
+					极度危险的武器
+					'''
+				DisplayName: 古力怕头颅
+			}
+
+			MinecraftBlock: {
+				Tooltip:
+					'''
+					使用后开始生成仍在测试中的生物
+					[c/ff0000:请注意当前版本为测试版，模组内容尚不完善]
+					'''
+				DisplayName: 草方块
+			}
+
+			BlazeHead: {
+				Tooltip: "[c/FF9900:背后的原因令人十级烧伤]"
+				DisplayName: 烈焰人喷火器
+			}
+
+			FrostBlazeHead: {
+				Tooltip:
+					'''
+					[c/4EBDFF:麒麟飞到北极会变成什么]
+					[c/4EBDFF:冰麒麟]
+					'''
+				DisplayName: 烈焰人寒霜喷射器
+			}
+
+			powder: {
+				Tooltip: 蕴含着强大的能量，或许某种特殊的武器能用上他
+				DisplayName: 火药
+			}
+
+			GhostHead: {
+				Tooltip: "[c/ffffcc:长按屏幕为恶魂加油]"
+				DisplayName: 恶魂榴弹炮
+			}
+
+			GhostPetItem: {
+				Tooltip: 别看他一身白色，但他也有对七彩的渴望
+				DisplayName: 饿魂之泪
+			}
+
+			BottleEvil: {
+				Tooltip: 或许村民可以用这个进行一些邪恶的酿造
+				DisplayName: 恶毒基底
+			}
+
+			WitherBossSummonItem: {
+				Tooltip: "[c/ff0000:未完成的物品]"
+				DisplayName: 凋灵
+			}
+
+			SpawnBlaze: {
+				// Tooltip: use to spawn a blaze
+				// DisplayName: Spawn Blaze
+			}
+
+			SpawnCreeper: {
+				// Tooltip: use to spawn a creeper
+				// DisplayName: Spawn Creeper
+			}
+
+			SpawnGhost: {
+				// Tooltip: use to spawn a Ghost
+				// DisplayName: Spawn Ghost
+			}
+
+			SpawnProjectile: {
+				// Tooltip: use to spawn a wither explosion
+				// DisplayName: Spawn Wither Projectile
+			}
+
+			SpawnSkeleton: {
+				// Tooltip: use to spawn a skeleton
+				// DisplayName: Spawn Skeleton
+			}
+
+			SpawnSmallGhost: {
+				// Tooltip: use to spawn a samll ghost
+				// DisplayName: Spawn Small Ghost
+			}
+
+			SpawnWitch: {
+				// Tooltip: use to spawn a witch
+				// DisplayName: Spawn Witch
+			}
+
+			SpawnZombie: {
+				// Tooltip: use to spawn a zombie
+				// DisplayName: Spawn Zombie
+			}
+
+			WitchPotionItem: {
+				// Tooltip: use to throw a bottle of potion
+				// DisplayName: Potion Item
+			}
+
+			killWitherBoss: {
+				// Tooltip: TEST ITEM
+				// DisplayName: Use to kill Wither Boss
+			}
+
+			SpawnWitherShoot: {
+				// Tooltip: TEST ITEM
+				// DisplayName: Use to spawn a wither shoot
+			}
+
+			WitherSword: {
+				// Tooltip: .
+				// DisplayName: Wither Sword
+			}
+
+			NetherStar: {
+				// DisplayName: Nether Star
+				// Tooltip: ""
+			}
+
+			FlaskofWither: {
+				DisplayName: 凋零瓶
+				// Tooltip: ""
+			}
 		}
-		
-		ItemName: {
-			CreeperHead: "古力怕头颅"
-			MinecraftBlock: '''草方块'''
-			BlazeHead:'''烈焰人喷火器'''
-			FrostBlazeHead:'''烈焰人寒霜喷射器'''
-			powder:'''火药'''
-			GhostHead:'''恶魂榴弹炮'''
-			GhostPetItem:'''饿魂之泪'''
-			BottleEvil:'''恶毒基底'''
-			WitherBossSummonItem:'''凋灵'''
+
+		Projectiles: {
+			CreeperHead_Projectile.DisplayName: 苦力怕头颅
+			ElementBall.DisplayName: 苦力怕
+			Fireball.DisplayName: 火球
+			FireballFriendly.DisplayName: 火球
+			JetFlame.DisplayName: 火焰
+			StrongJetFlame.DisplayName: 火焰
+			FrostFrame.DisplayName: 霜火
+			GhostFireBall.DisplayName: 恶魂火球
+			GhostPetProjectile.DisplayName: 宠物饿魂
+			// BlazeFireball.DisplayName: Blaze Fireball
+			// GhostFire.DisplayName: Ghost Fire
+			// GhostBoom.DisplayName: Ghast
+			// GhostHeadFireball.DisplayName: Ghost Head Fireball
+			// GhostHeadLargeFireBall.DisplayName: Ghost Head Large Fire Ball
+			// WitchPotion.DisplayName: Potion
+			// TrackHead.DisplayName: trackHead
+			// WitherExplosion.DisplayName: WitherExplosion
+			// WitherHead.DisplayName: WitherHead
+			// WitherHeadFriend.DisplayName: WitherHead
+			// WitherShoot.DisplayName: Wither Shoot
+			// BlackHead.DisplayName: Black Head
+			// BlueHead.DisplayName: Blue Head
 		}
-		
-		ProjectileName: {
-			CreeperHead_Projectile: "苦力怕头颅"
-			ElementBall:"苦力怕"
-			Fireball:"火球"
-			FireballFriendly:"火球"
-			JetFlame:"火焰"
-			StrongJetFlame:"火焰"
-			FrostFrame:"霜火"
-			GhostFireBall:"恶魂火球"
-			GhostPetProjectile:"宠物饿魂"
+
+		Buffs: {
+			MinecraftEffect: {
+				DisplayName: MC入侵 - 测试生物
+				Description: 某些仍在测试的生物现在会在世界中生成
+			}
+
+			GhostPetBuff: {
+				DisplayName: 饿魂游荡
+				Description: 饿魂会喜欢七彩的东西
+			}
+
+			WitherAttackPlayerEffect: {
+				DisplayName: 武器灌注：凋零
+				Description: 近战攻击会使敌人凋零
+			}
+
+			WitherDebuffForMob: {
+				DisplayName: 凋零
+				Description: 你的生命已如风中残烛
+			}
+
+			WitherDebuffForPlayer: {
+				DisplayName: 凋零
+				Description: 你的生命已如风中残烛
+			}
 		}
-		
-		BuffName: {
-			MinecraftEffect: "MC模式!"
-			GhostPetBuff:"饿魂游荡"
-		}
-		
-		BuffDescription: {
-			MinecraftEffect: '''周围有怪物在游荡'''
-			GhostPetBuff:'''饿魂会喜欢七彩的东西'''
-		}
-		
+
 		Bestiary: {
 			Creeper: 尝试靠近玩家然后众生平等
 			Blaze: 在地狱中游荡，会和玩家保持一定距离然后用火球偷锡
 		}
-
-		
-
-		
 	}
 }

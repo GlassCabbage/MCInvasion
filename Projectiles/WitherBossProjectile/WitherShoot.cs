@@ -1,21 +1,19 @@
-using MCInvasion.Buffs;
 using MCInvasion.NPCs.WitherBossNPC;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MCInvasion.Projectiles.WitherBossProjectile
 {
-	public class WitherShoot : ModProjectile
+	public class WitherShoot : AbstractWitherHead
 	{
 		private int shootSpeed = 20;
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wither Shoot"); 
+			// DisplayName.SetDefault("Wither Shoot"); 
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; 
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0; 
 		}
@@ -61,12 +59,13 @@ namespace MCInvasion.Projectiles.WitherBossProjectile
 		}
 
 
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
+			base.OnHitPlayer(target, info);
 		}
 
 		public override void AI()

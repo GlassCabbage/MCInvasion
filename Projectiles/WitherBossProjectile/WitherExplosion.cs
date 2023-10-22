@@ -13,7 +13,7 @@ namespace MCInvasion.Projectiles.WitherBossProjectile
 	public class WitherExplosion: ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("WitherExplosion"); 
+			// DisplayName.SetDefault("WitherExplosion"); 
 			Main.projFrames[Projectile.type] = 16;
 		}
 
@@ -32,11 +32,11 @@ namespace MCInvasion.Projectiles.WitherBossProjectile
 			Projectile.tileCollide = false; 
 		}
 
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			
 		}
 
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo info)
 		{
 
 		}

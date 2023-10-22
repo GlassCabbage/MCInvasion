@@ -10,8 +10,8 @@ namespace MCInvasion.Items.WitherBossItem
 	public class WitherBossSummonItem : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wither Boss Summon Item");
-			Tooltip.SetDefault("Summons Wither Boss");
+			// DisplayName.SetDefault("Wither Boss Summon Item");
+			// Tooltip.SetDefault("Summons Wither Boss");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
 			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
@@ -43,7 +43,7 @@ namespace MCInvasion.Items.WitherBossItem
 					NPC.SpawnOnPlayer(player.whoAmI, type);
 				}
 				else {
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 

@@ -10,8 +10,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Blaze");
-			Tooltip.SetDefault("use to spawn a blaze");
+			// DisplayName.SetDefault("Spawn Blaze");
+			// Tooltip.SetDefault("use to spawn a blaze");
 		}
 
 		public override void SetDefaults()

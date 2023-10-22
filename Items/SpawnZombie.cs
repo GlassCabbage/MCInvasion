@@ -10,8 +10,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Zombie");
-			Tooltip.SetDefault("use to spawn a zombie");
+			// DisplayName.SetDefault("Spawn Zombie");
+			// Tooltip.SetDefault("use to spawn a zombie");
 		}
 
 		public override void SetDefaults()

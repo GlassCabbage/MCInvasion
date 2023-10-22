@@ -46,7 +46,7 @@ namespace MCInvasion.NPCs
 		public ref float AI_Time2 => ref NPC.ai[2];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Creeper");
+			// DisplayName.SetDefault("Creeper");
 			Main.npcFrameCount[NPC.type] = 10;
 		}
 
@@ -405,7 +405,7 @@ namespace MCInvasion.NPCs
 			PitchVariance = 0.2f,
 			MaxInstances = 3,
 		};
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 10; i++) {
 				int dustType = DustID.Torch;
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

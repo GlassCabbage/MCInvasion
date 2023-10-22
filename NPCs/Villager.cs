@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using ReLogic.Content;
 using Terraria.ModLoader.IO;
 using MCInvasion.NPCs;
+using MCInvasion.Common.Players;
 
 namespace MCInvasion.NPCs
 {
@@ -91,18 +92,23 @@ namespace MCInvasion.NPCs
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			
 		}
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money) { // 判断城镇NPC生成条件
+		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */ { // 判断城镇NPC生成条件
 			for (int k = 0; k < 255; k++) {
 				Player player = Main.player[k];
 				if (!player.active) {
 					continue;
 				}
 
-				// 这里我们设置玩家身上要有 ExampleItem 或者 ExampleBlock 才会生成这个NPC
+				// 测试性内容
+				if (!player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect)
+                {
+					continue;
+                }
+
 				NPC npc;
 				npc = ModContent.GetModNPC(ModContent.NPCType<Witch>()).NPC;
 				if (Main.BestiaryTracker.Kills.GetKillCount(npc)>0) {
@@ -167,7 +173,7 @@ namespace MCInvasion.NPCs
 			button2 = "酿造";
 		}
 
-		public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
+		public override void OnChatButtonClicked(bool firstButton, ref string shopName) {
 			if (firstButton) {
 				// 这里我们设计3种不同的聊天按钮，我们使用 HasItem 这一条件判断来决定 一号按钮 是打开商店还是将蜂巢背包升级为蜂窝
 
@@ -188,7 +194,7 @@ namespace MCInvasion.NPCs
 				//	return;
 				//}
 
-				shop = true;
+				//shop = true;
 			}
 		}
 

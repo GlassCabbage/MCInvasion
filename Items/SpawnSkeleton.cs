@@ -10,8 +10,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Skeleton");
-			Tooltip.SetDefault("use to spawn a skeleton");
+			// DisplayName.SetDefault("Spawn Skeleton");
+			// Tooltip.SetDefault("use to spawn a skeleton");
 		}
 
 		public override void SetDefaults()

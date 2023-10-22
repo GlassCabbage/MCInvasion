@@ -1,4 +1,4 @@
-﻿# You may find this .hjson file approach to translations easier for your mod.
+# You may find this .hjson file approach to translations easier for your mod.
 # .hjson files contain translations for the language specified in the filename. (Make sure this file is UTF-8 encoded only.)
 # The possible languages are: English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
 # Here in ExampleMod we have organized these files in a folder called Localization. A single file per language makes it extremely easy to to integrate and maintain translations.
@@ -8,98 +8,216 @@
 
 Mods: {
 	MCInvasion: {
-		
-		
-		NPCName: {
-			SmallGhost:"Small Ghast"
-			WitherBoss:"Wither Boss"
+		NPCs: {
+			SmallGhost.DisplayName: Ghost
+			WitherBoss.DisplayName: Wither Boss
+			Creeper.DisplayName: Creeper
+			Blaze.DisplayName: Blaze
+			Zombie.DisplayName: Zombie
+			Skeleton.DisplayName: Skeleton
+			Ghost.DisplayName: Ghast
+			Slime.DisplayName: Slime
+			Witch.DisplayName: Witch
+
+			Villager: {
+				DisplayName: Villager
+
+				TownNPCMood: {
+					Content: 我很满足。
+					NoHome: 我讨厌没有家。
+					FarFromHome: 我离家太远了。
+					LoveSpace: 我非常喜欢有这么大的空间。
+					DislikeCrowded: 我不喜欢这么拥挤。
+					HateCrowded: 我讨厌这么拥挤。
+					LoveBiome: 我非常喜欢{BiomeName}。
+					LikeBiome: 我喜欢{BiomeName}。
+					DislikeBiome: 我不喜欢{BiomeName}。
+					LoveNPC: 我非常喜欢{NPCName}。
+					LikeNPC: 我喜欢{NPCName}。
+					DislikeNPC: 我不喜欢{NPCName}。
+					HateNPC: 我讨厌{NPCName}。
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
 		}
-		
-		
-		ItemTooltip: {
-			# These 2 examples show using substitutions. Here we use a vanilla Key and a key from this Mod to generate the text: "Nearby players get a bonus against: Octopus". 
-			# Note that the translation files for other languages don't need to define ItemTooltip.OctopusBanner, they would only need to define NPCName.Octopus, as seen in zh-Hans.hjson file. 
-			
-			CreeperHead:
-				'''
-				Throw a very dangerous head
-				'''
-			MinecraftBlock:
-				'''
-				Now MC mobs will summon around you!
-				[c/ff0000:Attention this version is incomplete]
-				[c/ff0000:Contact author through GlassCabbagean@gmail.com]
-				[c/ff0000:Contribute through github MCInvasion]
-				'''
-			BlazeHead:
-				'''
-				[c/FF9900:Have a fever]
-				'''
-			FrostBlazeHead:
-				'''
-				[c/4EBDFF:What's happen to this cool Blaze?]
-				'''
-			powder:
-				'''
-				Maybe some weapen can use this?
-				'''
-			GhostHead:
-				'''
-				[c/ffffcc:Hold to cheer for the ghast]
-				'''
-			GhostPetItem:
-				'''
-				Also has colorful dreams
-				'''
-			BottleEvil:
-				'''
-				Maybe Villager can use this to make something....
-				'''
-			WitherBossSummonItem:
-				'''
-				[c/ff0000:not finish yet]
-				'''
+
+		Items: {
+			CreeperHead: {
+				Tooltip: Throw a very dangerous head
+				DisplayName: Creeper Head
+			}
+
+			MinecraftBlock: {
+				Tooltip:
+					'''
+					Use to enable beta mobs
+					[c/ff0000:Attention this version is incomplete]
+					'''
+				DisplayName: Grass Block
+			}
+
+			BlazeHead: {
+				Tooltip: "[c/FF9900:Have a fever]"
+				DisplayName: Blaze Head
+			}
+
+			FrostBlazeHead: {
+				Tooltip: "[c/4EBDFF:What's happen to this cool Blaze?]"
+				DisplayName: Frost Blaze Head
+			}
+
+			powder: {
+				Tooltip: Maybe some weapen can use this?
+				DisplayName: Powder
+			}
+
+			GhostHead: {
+				Tooltip: "[c/ffffcc:Hold to cheer for the ghast]"
+				DisplayName: Ghast Head
+			}
+
+			GhostPetItem: {
+				Tooltip: Summons a small Ghost to follow you
+				DisplayName: Ghast Tear
+			}
+
+			BottleEvil: {
+				Tooltip: Maybe you can let Villager use this to caraft posion
+				DisplayName: Bottle Evil
+			}
+
+			WitherBossSummonItem: {
+				Tooltip: Summons Wither Boss
+				DisplayName: Wither Boss Summon Item
+			}
+
+			SpawnBlaze: {
+				Tooltip: use to spawn a blaze
+				DisplayName: Spawn Blaze
+			}
+
+			SpawnCreeper: {
+				Tooltip: use to spawn a creeper
+				DisplayName: Spawn Creeper
+			}
+
+			SpawnGhost: {
+				Tooltip: use to spawn a Ghost
+				DisplayName: Spawn Ghost
+			}
+
+			SpawnProjectile: {
+				Tooltip: use to spawn a wither explosion
+				DisplayName: Spawn Wither Projectile
+			}
+
+			SpawnSkeleton: {
+				Tooltip: use to spawn a skeleton
+				DisplayName: Spawn Skeleton
+			}
+
+			SpawnSmallGhost: {
+				Tooltip: use to spawn a samll ghost
+				DisplayName: Spawn Small Ghost
+			}
+
+			SpawnWitch: {
+				Tooltip: use to spawn a witch
+				DisplayName: Spawn Witch
+			}
+
+			SpawnZombie: {
+				Tooltip: use to spawn a zombie
+				DisplayName: Spawn Zombie
+			}
+
+			WitchPotionItem: {
+				Tooltip: use to throw a bottle of potion
+				DisplayName: Potion Item
+			}
+
+			killWitherBoss: {
+				Tooltip: TEST ITEM
+				DisplayName: Use to kill Wither Boss
+			}
+
+			SpawnWitherShoot: {
+				Tooltip: TEST ITEM
+				DisplayName: Use to spawn a wither shoot
+			}
+
+			WitherSword: {
+				Tooltip: .
+				DisplayName: Wither Sword
+			}
+
+			NetherStar: {
+				DisplayName: Nether Star
+				Tooltip: ""
+			}
+
+			FlaskofWither: {
+				DisplayName: Flask of Wither
+				Tooltip: ""
+			}
 		}
-		
-		ItemName: {
-			CreeperHead: "Creeper Head"
-			MinecraftBlock: '''Grass Block'''
-			BlazeHead:'''Blaze Head'''
-			FrostBlazeHead:'''Frost Blaze Head'''
-			powder:'''Powder'''
-			GhostHead:'''Ghast Head'''
-			GhostPetItem:'''Ghast Tears'''
-			BottleEvil:'''Bottle Evil'''
-			WitherBossSummonItem:'''Wither Boss'''
+
+		Projectiles: {
+			CreeperHead_Projectile.DisplayName: Creeper Head
+			ElementBall.DisplayName: Creeper
+			Fireball.DisplayName: Fireball
+			FireballFriendly.DisplayName: Fireball
+			JetFlame.DisplayName: Flame
+			StrongJetFlame.DisplayName: Flame
+			FrostFrame.DisplayName: Frost Flame
+			GhostFireBall.DisplayName: Ghast Fireball
+			GhostPetProjectile.DisplayName: Ghast
+			BlazeFireball.DisplayName: Blaze Fireball
+			GhostFire.DisplayName: Ghost Fire
+			GhostBoom.DisplayName: Ghast
+			GhostHeadFireball.DisplayName: Ghost Head Fireball
+			GhostHeadLargeFireBall.DisplayName: Ghost Head Large Fire Ball
+			WitchPotion.DisplayName: Potion
+			TrackHead.DisplayName: trackHead
+			WitherExplosion.DisplayName: WitherExplosion
+			WitherHead.DisplayName: WitherHead
+			WitherHeadFriend.DisplayName: WitherHead
+			WitherShoot.DisplayName: Wither Shoot
+			BlackHead.DisplayName: Black Head
+			BlueHead.DisplayName: Blue Head
 		}
-		
-		ProjectileName: {
-			CreeperHead_Projectile: "Creeper Head"
-			ElementBall:"Creeper"
-			Fireball:"Fireball"
-			FireballFriendly:"Fireball"
-			JetFlame:"Flame"
-			StrongJetFlame:"Flame"
-			FrostFrame:"Frost Flame"
-			GhostFireBall:"Ghast Fireball"
-			GhostPetProjectile:"Ghast"
+
+		Buffs: {
+			MinecraftEffect: {
+				DisplayName: MC Invasion - Beta mode
+				Description: Some beta mode mobs will spawn in the world now.
+			}
+
+			GhostPetBuff: {
+				DisplayName: Ghast
+				Description: '''"Small Ghast around you!"'''
+			}
+
+			WitherAttackPlayerEffect: {
+				DisplayName: Weapon Imbue: Wither
+				Description: Melee attacks inflict enemies with Wither
+			}
+
+			WitherDebuffForMob: {
+				DisplayName: Wither
+				Description: Your life is fading!
+			}
+
+			WitherDebuffForPlayer: {
+				DisplayName: Wither
+				Description: Your life is fading!
+			}
 		}
-		
-		BuffName: {
-			MinecraftEffect: "Minecraft!"
-			GhostPetBuff:"Ghast following"
-		}
-		
-		BuffDescription: {
-			MinecraftEffect: '''There are monsters roaming around！'''
-			GhostPetBuff:'''Try something colorful'''
-		}
-		
+
 		Bestiary: {
+			Creeper: Mods.MCInvasion.Bestiary.Creeper
+			Blaze: Mods.MCInvasion.Bestiary.Blaze
 		}
-
-		
-
-		
 	}
 }

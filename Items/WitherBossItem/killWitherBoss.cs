@@ -10,8 +10,8 @@ namespace MCInvasion.Items.WitherBossItem
 	public class killWitherBoss : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Use to kill Wither Boss");
-			Tooltip.SetDefault("TEST ITEM");
+			// DisplayName.SetDefault("Use to kill Wither Boss");
+			// Tooltip.SetDefault("TEST ITEM");
 		}
 
 		public override void SetDefaults() {

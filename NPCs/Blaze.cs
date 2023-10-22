@@ -42,7 +42,7 @@ namespace MCInvasion.NPCs
 		public ref float AI_Time2 => ref NPC.ai[2];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blaze");
+			// DisplayName.SetDefault("Blaze");
 			Main.npcFrameCount[NPC.type] = 10;
 		}
 
@@ -74,7 +74,7 @@ namespace MCInvasion.NPCs
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-            if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && spawnInfo.Player.ZoneUnderworldHeight && Main.hardMode)
+            if (spawnInfo.Player.ZoneUnderworldHeight && Main.hardMode)
                 return 0.3f;
             else
                 return 0f;
@@ -277,7 +277,7 @@ namespace MCInvasion.NPCs
 			PitchVariance = 0.2f,
 			MaxInstances = 3,
 		};
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 10; i++) {
 				int dustType = DustID.Torch;
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

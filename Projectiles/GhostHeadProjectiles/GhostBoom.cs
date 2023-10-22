@@ -8,7 +8,7 @@ namespace MCInvasion.Projectiles.GhostHeadProjectiles
 	public class GhostBoom : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ghast");
+			// DisplayName.SetDefault("Ghast");
 		}
 
 		public override void SetDefaults() {

@@ -20,17 +20,17 @@ namespace MCInvasion.Content.BossBars
 			return null;
 		}
 
-		public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float lifePercent, ref float shieldPercent) {
+		public override bool? ModifyInfo(ref BigProgressBarInfo info, ref float life, ref float lifeMax, ref float shield, ref float shieldMax)/* tModPorter Note: life and shield current and max values are now separate to allow for hp/shield number text draw */ {
 			NPC npc = Main.npc[info.npcIndexToAimAt];
 			if (!npc.active)
 				return false;
 
 			bossHeadIndex = npc.GetBossHeadTextureIndex();
 
-			lifePercent = Utils.Clamp(npc.life / (float)npc.lifeMax, 0f, 1f);
+			//lifePercent = Utils.Clamp(npc.life / (float)npc.lifeMax, 0f, 1f);
 
 			if (npc.ModNPC is WitherBoss body) {
-				shieldPercent = Utils.Clamp(body.RemainingShields, 0f, 1f);
+				//shieldPercent = Utils.Clamp(body.RemainingShields, 0f, 1f);
 			}
 
 			return true;

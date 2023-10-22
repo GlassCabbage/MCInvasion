@@ -11,8 +11,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Witch");
-			Tooltip.SetDefault("use to spawn a witch");
+			// DisplayName.SetDefault("Spawn Witch");
+			// Tooltip.SetDefault("use to spawn a witch");
 		}
 
 		public override void SetDefaults()

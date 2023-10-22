@@ -55,7 +55,7 @@ namespace MCInvasion.NPCs
 		public ref float AI_Time2 => ref NPC.ai[2];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Witch");
+			// DisplayName.SetDefault("Witch");
 			Main.npcFrameCount[NPC.type] = 16;
 		}
 
@@ -87,6 +87,15 @@ namespace MCInvasion.NPCs
 		}
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
+
+			// ≤‚ ‘–‘…˙ŒÔ
+			if (!spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect)
+            {
+				return 0f;
+            }
+
+
+
 			//TODO check npc area
 			float chance = 0;
 			int count = 0;
@@ -99,7 +108,7 @@ namespace MCInvasion.NPCs
 			bool dayCheck = false;
 			if (!nightCheck)
 				dayCheck = (Main.dayTime && (spawnInfo.Player.ZoneRockLayerHeight || spawnInfo.Player.ZoneDirtLayerHeight));
-			if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && (dayCheck || nightCheck) && NPC.AnyNPCs(ModContent.NPCType<Witch>()))
+			if ((dayCheck || nightCheck) && !NPC.AnyNPCs(ModContent.NPCType<Witch>()))
 				chance = count/100;
 			else
 				return 0f;
@@ -849,7 +858,7 @@ namespace MCInvasion.NPCs
 		}
 
 		
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
             switch (Main.rand.Next(3))
             {
 				case 0:

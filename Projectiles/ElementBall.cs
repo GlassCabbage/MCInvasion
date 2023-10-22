@@ -8,7 +8,7 @@ namespace MCInvasion.Projectiles
 	public class ElementBall : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Creeper");
+			// DisplayName.SetDefault("Creeper");
 		}
 
 		public override void SetDefaults() {

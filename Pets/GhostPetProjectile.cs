@@ -11,7 +11,7 @@ namespace MCInvasion.Pets
 	public class GhostPetProjectile : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ghast");
+			// DisplayName.SetDefault("Ghast");
 
 			Main.projFrames[Projectile.type] = 16;
 			Main.projPet[Projectile.type] = true;

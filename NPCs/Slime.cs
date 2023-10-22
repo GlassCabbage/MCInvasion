@@ -11,7 +11,7 @@ namespace MCInvasion.NPCs
 	public class Slime : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Slime");
+			// DisplayName.SetDefault("Slime");
 
 			Main.npcFrameCount[Type] = 3;
 
@@ -53,7 +53,7 @@ namespace MCInvasion.NPCs
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && spawnInfo.Player.ZoneOverworldHeight && Main.dayTime)
+			if (spawnInfo.Player.ZoneOverworldHeight && Main.dayTime)
 				return 1f;
 			else
 				return 0f;
@@ -66,7 +66,7 @@ namespace MCInvasion.NPCs
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 10; i++) {
 				var dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.SlimeBunny);
 

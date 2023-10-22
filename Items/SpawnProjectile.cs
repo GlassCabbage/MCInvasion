@@ -12,8 +12,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Spawn Wither Projectile");
-			Tooltip.SetDefault("use to spawn a wither explosion");
+			// DisplayName.SetDefault("Spawn Wither Projectile");
+			// Tooltip.SetDefault("use to spawn a wither explosion");
 		}
 
 		public override void SetDefaults()

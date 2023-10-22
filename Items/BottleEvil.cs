@@ -9,7 +9,7 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Maybe you can let Villager use this to caraft posion");
+			// Tooltip.SetDefault("Maybe you can let Villager use this to caraft posion");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 

@@ -11,7 +11,7 @@ namespace MCInvasion.NPCs
 	public class Skeleton : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Skeleton");
+			// DisplayName.SetDefault("Skeleton");
 
 			Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.SkeletonArcher];
 
@@ -44,9 +44,9 @@ namespace MCInvasion.NPCs
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && spawnInfo.Player.ZoneOverworldHeight && !Main.dayTime && Main.hardMode)
+			if (spawnInfo.Player.ZoneOverworldHeight && !Main.dayTime && Main.hardMode)
 				return 0.03f;
-			else if (spawnInfo.Player.GetModPlayer<MinecraftPlayer>().hasMinecraftEffect == true && (spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight) && Main.hardMode)
+			else if ((spawnInfo.Player.ZoneDirtLayerHeight || spawnInfo.Player.ZoneRockLayerHeight) && Main.hardMode)
 				return 0.03f;
 			else
 				return 0f;
@@ -59,7 +59,7 @@ namespace MCInvasion.NPCs
 			});
 		}
 
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 10; i++) {
 				var dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Bone);
 

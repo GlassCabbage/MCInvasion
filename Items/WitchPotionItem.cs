@@ -13,8 +13,8 @@ namespace MCInvasion.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Potion Item");
-			Tooltip.SetDefault("use to throw a bottle of potion");
+			// DisplayName.SetDefault("Potion Item");
+			// Tooltip.SetDefault("use to throw a bottle of potion");
 		}
 
 		public override void SetDefaults()
